@@ -1,0 +1,64 @@
+// Set Source Chest
+if not findalias 'Chest1'
+  setalias 'Chest1'
+endif
+//
+// Cure Poison
+if poisoned 'self'
+  headmsg 'sec 2'
+  if counttype 0xf07 0 backpack >= 1
+    usetype '0xf07' 'any' 'backpack'
+    waitfortarget 1000
+    target! 'self'
+    pause 333
+  endif
+endif
+//
+// Move Cure Keg
+if not @findtype 0x1940 44 'backpack'
+  movetype 0x1940 'Chest1' 'backpack' 0 0 0 44 1
+  pause 2000
+endif
+//
+// Move Poison Keg
+if not @findtype 0x1940 363 'backpack'
+  movetype 0x1940 'Chest1' 'backpack' 0 0 0 363 1
+  pause 2000
+endif
+//
+// Move empty Keg
+if @findtype 0x1940 0 'backpack'
+  movetype 0x1940 'backpack' 'Chest1' 0 0 0 0 1
+  pause 2000
+endif
+//
+// Move Empty Bottle
+if not @findtype 0xf0e 'any' 'backpack'
+  headmsg 'Missing Empty Bottle'
+  pause 2000
+  movetype 0xf0e 'Chest1' 'backpack'
+  pause 2000
+endif
+//
+// Refill Cure
+if not @findtype 0xf07 'any' 'backpack'
+  usetype 0x1940 44 'backpack'
+endif
+//
+// Refill Poison
+if not @findtype 0xf0a 'any' 'backpack'
+  usetype 0x1940 363 'backpack'
+endif
+//
+// Poisen Food
+if @findtype 0xf0a 'any' 'backpack'
+  headmsg 'sec 3'
+  useskill 'Poisoning'
+  waitfortarget 333
+  targettype '0xf0a' 'any' 'backpack'
+  waitfortarget 333
+  //target cheese
+  targettype '0x97d' 'any' 'backpack'
+  pause 333
+endif
+//
