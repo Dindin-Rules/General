@@ -57,6 +57,26 @@ if findobject 'keg3' 363 'backpack'
 endif
 // end keg3
 //--------------------------------------------------------------------
+// move poison bottles to keg2
+if findtype '0xf0a' 'any' 'backpack'
+  movetype 0xf0a 'backpack' 'keg2' 0 0 0
+endif
+// end poison bottle move
+//--------------------------------------------------------------------
+// check for filled keg
+if @injournal 'The keg will not hold any more!' 'system'
+  headmsg 'full' 38
+  pause 500
+  setalias 'keg3' 'keg2'
+  pause 500
+  unsetalias 'keg2'
+  pause 500
+  moveitem 'keg3' 'kegchest' 0 0 0 1
+  pause 500
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+endif
+// end check for filled keg
+//--------------------------------------------------------------------
 // get regs nightshade from the chest
 if counttype '0xf88' 'any' 'backpack' < 5
   movetype '0xf88' 'regchest' 'backpack' 0 0 0 'any' 100
