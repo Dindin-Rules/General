@@ -1,0 +1,104 @@
+clearjournal
+if not findalias 'kegchest'
+  setalias 'kegchest'
+endif
+if not findalias 'regchest'
+  setalias 'regchest'
+endif
+// Checkgs for a empty keg and then makes sure you dont already have
+// one your using then if it does not find keg2 it fills poison in
+// the keg to make it ready to use
+if @findtype! 0x1940 0 'backpack' and not findobject 'keg2' 363 'backpack'
+  setalias! 'keg1' 'found'
+  pause 333
+  movetype 0xf0a 'backpack' 'keg1' 0 0 0 0 1
+  pause 2000
+  unsetalias 'found'
+endif
+// checks for a active in use keg in your backpack and moves it to a
+// chest on the floor.
+// edit the serial number in the move type to your chests or add a
+// mechanic to set the alias at the start of the macro
+if not findobject 'keg2' 363 'backpack'
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+endif
+// if a green keg is found, it will attempt to put any poison bottles in it
+if @findtype! 0x1940 363 'backpack'
+  setalias! 'keg2' 'found'
+  pause 333
+  movetype 0xf0a 'backpack' 'keg2' 0 0 0 0 1
+  pause 333
+  unsetalias 'found'
+endif
+// if the system shows the keg is full, set it to keg3, clear keg2 alias
+// and move keg3 to the chest
+if @injournal 'The keg will not hold any more!' 'system'
+  headmsg 'full' 38
+  pause 500
+  setalias 'keg3' 'keg2'
+  pause 500
+  unsetalias 'keg2'
+  pause 500
+  moveitem 'keg3' 'kegchest' 0 0 0 1
+  pause 500
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+else
+  headmsg 'not' 49
+endif
+// get regs nightshade from the chest
+if counttype '0xf88' 'any' 'backpack' < 5
+  movetype '0xf88' 'regchest' 'backpack' 0 0 0 'any' 100
+endif
+// check for mortar and pestle
+if not findtype '0xe9b' 'any' 'backpack'
+  headmsg 'missing mortar'
+endif
+// keg type 0x1940 363 is green
+// empty bottle 0xf09
+// poison bottle 0xf0a
+pause 375
+// train 55-75
+if skill 'alchemy' >= 55 and skill 'alchemy' < 75
+  // 55 - 75: Poison
+  usetype '0xe9b' 'any' 'backpack'
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 106
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 301
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 16
+  waitforgump 0x38920abd 333
+  waitforgump 0x38920abd 333
+  pause 2000
+endif
+// train 75-95
+if skill 'alchemy' >= 75 and skill 'alchemy' < 95
+  usetype '0xe9b' 'any' 'backpack'
+  //75 - 95: Greater Poison
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 106
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 302
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 16
+  waitforgump 0x38920abd 333
+  waitforgump 0x38920abd 333
+  pause 2000
+endif
+// train 95-100
+if skill 'alchemy' >= 95 and skill 'alchemy' < 100
+  usetype '0xe9b' 'any' 'backpack'
+  //95 - 100: Deadly Poison
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 106
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 303
+  waitforgump 0x38920abd 333
+  replygump 0x38920abd 16
+  waitforgump 0x38920abd 333
+  waitforgump 0x38920abd 333
+  pause 2000
+endif
+// if any keg3's are still hanging around, move them to the chest
+moveitem 'keg3' 'kegchest' 0 0 0 1
+pause 500
