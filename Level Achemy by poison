@@ -8,12 +8,15 @@ endif
 // Checkgs for a empty keg and then makes sure you dont already have
 // one your using then if it does not find keg2 it fills poison in
 // the keg to make it ready to use
-if @findtype! 0x1940 0 'backpack' and not findobject 'keg2' 363 'backpack'
-  setalias! 'keg1' 'found'
-  pause 333
-  movetype 0xf0a 'backpack' 'keg1' 0 0 0 0 1
-  pause 2000
-  unsetalias 'found'
+if not findobject 'keg1' 0 'backpack'
+// this line (11) makes sure not to move more than 1 empty keg to your bags
+  if @findtype! 0x1940 0 'backpack' and not findobject 'keg2' 363 'backpack'
+    setalias! 'keg1' 'found'
+    pause 333
+    movetype 0xf0a 'backpack' 'keg1' 0 0 0 0 1
+    pause 2000
+    unsetalias 'found'
+  endif
 endif
 // checks for a active in use keg in your backpack and moves it to a
 // chest on the floor.
