@@ -1,65 +1,76 @@
 clearjournal
+//--------------------------------------------------------------------
 if not findalias 'kegchest'
   setalias 'kegchest'
 endif
+//--------------------------------------------------------------------
 if not findalias 'regchest'
   setalias 'regchest'
 endif
-// Checkgs for a empty keg and then makes sure you dont already have
-// one your using then if it does not find keg2 it fills poison in
-// the keg to make it ready to use
+//--------------------------------------------------------------------
+// setup keg1
+// get a empty and mark it as keg1
 if not findobject 'keg1' 0 'backpack'
-// this line (11) makes sure not to move more than 1 empty keg to your bags
-  if @findtype! 0x1940 0 'backpack' and not findobject 'keg2' 363 'backpack'
-    setalias! 'keg1' 'found'
+  headmsg '++Keg One Missing++' 38
+  // 0x1940 = Keg (0=empty, 363=Poison)
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+  pause 333
+  if findtype 0x1940 0 'backpack'1
     pause 333
-    movetype 0xf0a 'backpack' 'keg1' 0 0 0 0 1
-    pause 2000
+    setalias 'keg1' 'found'
+    pause 333
     unsetalias 'found'
+    pause 333
+  else
+    headmsg '++Script Failure Keg One++' 38
+  endif
+  if counttype 0x1940 0 'backpack' > 1
+    movetype 0x1940 'backpack' 'kegchest' 0 0 0 0 1
+  endif
+else
+  headmsg '++Found Keg One++' 48
+endif
+// end keg1 setup
+//--------------------------------------------------------------------
+// setup keg2
+if not findobject 'keg2' 363 'backpack'
+  headmsg '++Keg Two Missing++' 38
+  // 0xf0a = Poison Bottle
+  movetype 0xf0a 'backpack' 'keg1' 0 0 0 0 1
+  pause 333
+  if findtype 0x1940 363 'backpack'1
+    pause 333
+    setalias 'keg2' 'found'
+    pause 333
+    unsetalias 'found'
+    pause 333
+  else
+    headmsg '++Script Failure Keg Two++' 38
   endif
 endif
-// checks for a active in use keg in your backpack and moves it to a
-// chest on the floor.
-// edit the serial number in the move type to your chests or add a
-// mechanic to set the alias at the start of the macro
-if not findobject 'keg2' 363 'backpack'
-  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
-endif
-// if a green keg is found, it will attempt to put any poison bottles in it
-if @findtype! 0x1940 363 'backpack'
-  setalias! 'keg2' 'found'
-  pause 333
-  movetype 0xf0a 'backpack' 'keg2' 0 0 0 0 1
-  pause 333
-  unsetalias 'found'
-endif
-// if the system shows the keg is full, set it to keg3, clear keg2 alias
-// and move keg3 to the chest
-if @injournal 'The keg will not hold any more!' 'system'
-  headmsg 'full' 38
-  pause 500
-  setalias 'keg3' 'keg2'
-  pause 500
-  unsetalias 'keg2'
-  pause 500
+// end keg2
+//--------------------------------------------------------------------
+// setup keg3
+if findobject 'keg3' 363 'backpack'
+  headmsg '++Keg Three Present++' 38
   moveitem 'keg3' 'kegchest' 0 0 0 1
-  pause 500
-  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
-else
-  headmsg 'not' 49
 endif
+// end keg3
+//--------------------------------------------------------------------
 // get regs nightshade from the chest
 if counttype '0xf88' 'any' 'backpack' < 5
   movetype '0xf88' 'regchest' 'backpack' 0 0 0 'any' 100
 endif
+//--------------------------------------------------------------------
 // check for mortar and pestle
 if not findtype '0xe9b' 'any' 'backpack'
   headmsg 'missing mortar'
 endif
+//--------------------------------------------------------------------
 // keg type 0x1940 363 is green
 // empty bottle 0xf09
 // poison bottle 0xf0a
-pause 375
+//--------------------------------------------------------------------
 // train 55-75
 if skill 'alchemy' >= 55 and skill 'alchemy' < 75
   // 55 - 75: Poison
@@ -74,6 +85,22 @@ if skill 'alchemy' >= 55 and skill 'alchemy' < 75
   waitforgump 0x38920abd 333
   pause 2000
 endif
+// end first train section
+//--------------------------------------------------------------------
+// check for filled keg
+if @injournal 'The keg will not hold any more!' 'system'
+  headmsg 'full' 38
+  pause 500
+  setalias 'keg3' 'keg2'
+  pause 500
+  unsetalias 'keg2'
+  pause 500
+  moveitem 'keg3' 'kegchest' 0 0 0 1
+  pause 500
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+endif
+// end check for filled keg
+//--------------------------------------------------------------------
 // train 75-95
 if skill 'alchemy' >= 75 and skill 'alchemy' < 95
   usetype '0xe9b' 'any' 'backpack'
@@ -88,6 +115,22 @@ if skill 'alchemy' >= 75 and skill 'alchemy' < 95
   waitforgump 0x38920abd 333
   pause 2000
 endif
+// end train section two
+//--------------------------------------------------------------------
+// check for filled keg
+if @injournal 'The keg will not hold any more!' 'system'
+  headmsg 'full' 38
+  pause 500
+  setalias 'keg3' 'keg2'
+  pause 500
+  unsetalias 'keg2'
+  pause 500
+  moveitem 'keg3' 'kegchest' 0 0 0 1
+  pause 500
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+endif
+// end check for filled keg
+//--------------------------------------------------------------------
 // train 95-100
 if skill 'alchemy' >= 95 and skill 'alchemy' < 100
   usetype '0xe9b' 'any' 'backpack'
@@ -102,6 +145,20 @@ if skill 'alchemy' >= 95 and skill 'alchemy' < 100
   waitforgump 0x38920abd 333
   pause 2000
 endif
-// if any keg3's are still hanging around, move them to the chest
-moveitem 'keg3' 'kegchest' 0 0 0 1
+// end train section three
+//--------------------------------------------------------------------
+// check for filled keg
+if @injournal 'The keg will not hold any more!' 'system'
+  headmsg 'full' 38
+  pause 500
+  setalias 'keg3' 'keg2'
+  pause 500
+  unsetalias 'keg2'
+  pause 500
+  moveitem 'keg3' 'kegchest' 0 0 0 1
+  pause 500
+  movetype 0x1940 'kegchest' 'backpack' 0 0 0 0 1
+endif
+// end check for filled keg
+//--------------------------------------------------------------------
 pause 500
