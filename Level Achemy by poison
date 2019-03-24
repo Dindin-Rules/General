@@ -181,4 +181,7 @@ if @injournal 'The keg will not hold any more!' 'system'
 endif
 // end check for filled keg
 //--------------------------------------------------------------------
-pause 500
+while counttype '0x1940' 0 'backpack' > 1
+  movetype 0x1940 'backpack' 'kegchest' 0 0 0 0 1
+  pause 400
+endwhile
