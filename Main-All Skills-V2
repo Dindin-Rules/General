@@ -1,0 +1,692 @@
+//
+//----------------------------------------------
+// This section checks for what skills to train
+//----------------------------------------------
+// Change a skill option to (up) to train it
+// This macro assumes you have vendor bought the
+// skills you want up to 50 already.
+// Currently this is setup for a Guildie and is intesting
+//
+//
+//----------------------------------------------
+// This section checks for the skills to train
+//----------------------------------------------
+//
+//
+headmsg '1.0 (around line 25) Skills ' 38
+setskill 'Animal Lore' 'down'
+setskill 'Animal Taming' 'down'
+setskill 'Alchemy' 'down'
+setskill 'Anatomy' 'down'
+setskill 'Archery' 'down'
+setskill 'Arms Lore' 'down'
+setskill 'Begging' 'down'
+setskill 'Blacksmithy' 'down'
+setskill 'Bowcraft' 'down'
+setskill 'Camping' 'down'
+setskill 'Carpentry' 'down'
+setskill 'Cartography' 'down'
+setskill 'Cooking' 'down'
+setskill 'Detecting Hidden' 'down'
+setskill 'Discordance' 'down'
+setskill 'Evaluating Intelligence' 'up'
+setskill 'Fencing' 'down'
+setskill 'Fishing' 'down'
+setskill 'Forensic Evaluation' 'down'
+setskill 'Healing' 'down'
+setskill 'Herding' 'up'
+setskill 'Hiding' 'down'
+setskill 'Imbuing' 'down'
+setskill 'Inscription' 'up'
+setskill 'Item Identification' 'down'
+setskill 'Lockpicking' 'down'
+setskill 'Lumberjacking' 'down'
+setskill 'Mace Fighting' 'down'
+setskill 'Magery' 'up'
+setskill 'Meditation' 'up'
+setskill 'Mining' 'down'
+setskill 'Musicianship' 'down'
+setskill 'Mysticism' 'down'
+setskill 'Parrying' 'down'
+setskill 'Peacemaking' 'down'
+setskill 'Poisoning' 'down'
+setskill 'Provocation' 'down'
+setskill 'Resisting Spells' 'down'
+setskill 'Remove Trap' 'down'
+setskill 'Snooping' 'down'
+setskill 'Spellweaving' 'down'
+setskill 'Stealing' 'down'
+setskill 'Stealth' 'down'
+setskill 'Swordsmanship' 'down'
+setskill 'Spirit Speak' 'up'
+setskill 'Tailoring' 'down'
+setskill 'Tactics' 'down'
+setskill 'Taste Identification' 'down'
+setskill 'Throwing' 'down'
+setskill 'Tinkering' 'down'
+setskill 'Tracking' 'up'
+setskill 'Wrestling' 'down'
+setskill 'Veterinary' 'down'
+//
+//----------------------------------------------
+// This section checks for the skills to train
+//----------------------------------------------
+//
+//
+//----------------------------------------------
+// do not make changes in this aready unless you know
+// what you are doing or are instructed to
+//----------------------------------------------
+//
+headmsg '1.1 (around line 90) Skills ' 38
+clearlist 'skills'
+@createlist 'skills'
+//
+if skill 'Animal Lore' >= '50' and skillstate 'Animal Lore' == up
+  sysmsg 'Training Animal Lore Selected' 88
+  pushlist 'skills' 'AnimalLore'
+endif
+//
+//
+if skill 'Animal Taming' >= '50' and skillstate 'Animal Taming' == up
+  sysmsg 'Training Animal Taming Selected' 88
+  pushlist 'skills' 'AnimalTaming'
+endif
+//
+if skill 'Alchemy' >= '50' and skillstate 'Alchemy' == up
+  sysmsg 'Training Alchemy Selected' 88
+  pushlist 'skills' 'Alchemy'
+endif
+//
+if skill 'Anatomy' >= '50' and skillstate 'Anatomy' == up
+  sysmsg 'Training Anatomy Selected' 88
+  pushlist 'skills' 'Anatomy'
+endif
+//
+if skill 'Archery' >= '50' and skillstate 'Archery' == up
+  sysmsg 'Training Archery Selected' 88
+  pushlist 'skills' 'Archery'
+endif
+//
+if skill 'Arms Lore' >= '50' and skillstate 'Arms Lore' == up
+  sysmsg 'Training Arms Lore Selected' 88
+  pushlist 'skills' 'ArmsLore'
+endif
+//
+if skill 'hiding' >= '50' and skillstate 'hiding' == up
+  sysmsg 'Training Hiding Selected' 88
+  pushlist 'skills' 'hiding'
+endif
+//
+if skill 'Begging' >= '50' and skillstate 'Begging' == up
+  sysmsg 'Training Begging Selected' 88
+  pushlist 'skills' 'Begging'
+endif
+//
+if skill 'Blacksmithy' >= '50' and skillstate 'Blacksmithy' == up
+  sysmsg 'Training Blacksmithy Selected' 88
+  pushlist 'skills' 'Blacksmithy'
+endif
+//
+if skill 'Bowcraft' >= '50' and skillstate 'Bowcraft' == up
+  sysmsg 'Training Bowcraft Selected' 88
+  pushlist 'skills' 'Bowcraft'
+endif
+//
+if skill 'Camping' >= '50' and skillstate 'Camping' == up
+  sysmsg 'Training Camping Selected' 88
+  pushlist 'skills' 'Camping'
+endif
+//
+if skill 'Carpentry' >= '50' and skillstate 'Carpentry' == up
+  sysmsg 'Training Carpentry Selected' 88
+  pushlist 'skills' 'Carpentry'
+endif
+//
+if skill 'Cartography' >= '50' and skillstate 'Cartography' == up
+  sysmsg 'Training Cartography Selected' 88
+  pushlist 'skills' 'Cartography'
+endif
+//
+if skill 'Cooking' >= '50' and skillstate 'Cooking' == up
+  sysmsg 'Training Cooking Selected' 88
+  pushlist 'skills' 'Cooking'
+endif
+//
+if skill 'Detecting Hidden' >= '50' and skillstate 'Detecting Hidden' == up
+  sysmsg 'Training Detecting Hidden Selected' 88
+  pushlist 'skills' 'DetectingHidden'
+endif
+//
+if skill 'Discordance' >= '50' and skillstate 'Discordance' == up
+  sysmsg 'Training Discordance Selected' 88
+  pushlist 'skills' 'Discordance'
+endif
+//
+if skill 'Evaluating Intelligence' >= '50' and skillstate 'Evaluating Intelligence' == up
+  sysmsg 'Training Eval Inell Selected' 88
+  pushlist 'skills' 'EvaluatingIntelligence'
+endif
+//
+if skill 'Fencing' >= '50' and skillstate 'Fencing' == up
+  sysmsg 'Training Fencing Selected' 88
+  pushlist 'skills' 'Fencing'
+endif
+//
+if skill 'Fishing' >= '50' and skillstate 'Fishing' == up
+  sysmsg 'Training Fishing Selected' 88
+  pushlist 'skills' 'Fishing'
+endif
+//
+if skill 'Forensic Evaluation' >= '50' and skillstate 'Forensic Evaluation' == up
+  sysmsg 'Training Forensic Evaluation Selected' 88
+  pushlist 'skills' 'ForensicEvaluation'
+endif
+//
+if skill 'Healing' >= '50' and skillstate 'Healing' == up
+  sysmsg 'Training Healing Selected' 88
+  pushlist 'skills' 'Healing'
+endif
+//
+if skill 'Herding' >= '50' and skillstate 'Herding' == up
+  sysmsg 'Training Herding Selected' 88
+  pushlist 'skills' 'Herding'
+endif
+//
+if skill 'Hiding' >= '50' and skillstate 'Hiding' == up
+  sysmsg 'Training Hiding Selected' 88
+  pushlist 'skills' 'Hiding'
+endif
+//
+if skill 'Imbuing' >= '50' and skillstate 'Imbuing' == up
+  sysmsg 'Training Imbuing Selected' 88
+  pushlist 'skills' 'Imbuing'
+endif
+//
+if skill 'hiding' >= '50' and skillstate 'hiding' == up
+  sysmsg 'Training Hiding Selected' 88
+  pushlist 'skills' 'hiding'
+endif
+//
+if skill 'Inscription' >= '50' and skillstate 'Inscription' == up
+  sysmsg 'Training Inscription Selected' 88
+  pushlist 'skills' 'Inscription'
+endif
+//
+if skill 'Item Identification' >= '50' and skillstate 'Item Identification' == up
+  sysmsg 'Training Item Identification Selected' 88
+  pushlist 'skills' 'ItemIdentification'
+endif
+//
+if skill 'Lockpicking' >= '50' and skillstate 'Lockpicking' == up
+  sysmsg 'Training Lockpicking Selected' 88
+  pushlist 'skills' 'Lockpicking'
+endif
+//
+if skill 'Lumberjacking' >= '50' and skillstate 'Lumberjacking' == up
+  sysmsg 'Training Lumberjacking Selected' 88
+  pushlist 'skills' 'Lumberjacking'
+endif
+//
+if skill 'Mace Fighting' >= '50' and skillstate 'Mace Fighting' == up
+  sysmsg 'Training Mace Fighting Selected' 88
+  pushlist 'skills' 'MaceFighting'
+endif
+//
+if skill 'Magery' >= '50' and skillstate 'Magery' == up
+  sysmsg 'Training Magery Selected' 88
+  pushlist 'skills' 'Magery'
+endif
+//
+if skill 'Meditation' >= '50' and skillstate 'Meditation' == up
+  sysmsg 'Training Meditation Selected' 88
+  pushlist 'skills' 'Meditation'
+endif
+//
+if skill 'Mining' >= '50' and skillstate 'Mining' == up
+  sysmsg 'Training Mining Selected' 88
+  pushlist 'skills' 'Mining'
+endif
+//
+if skill 'Musicianship' >= '50' and skillstate 'Musicianship' == up
+  sysmsg 'Training Musicianship Selected' 88
+  pushlist 'skills' 'Musicianship'
+endif
+//
+if skill 'Mysticism' >= '50' and skillstate 'Mysticism' == up
+  sysmsg 'Training Mysticism Selected' 88
+  pushlist 'skills' 'Mysticism'
+endif
+//
+if skill 'Parrying' >= '50' and skillstate 'Parrying' == up
+  sysmsg 'Training Parrying Selected' 88
+  pushlist 'skills' 'Parrying'
+endif
+//
+if skill 'Peacemaking' >= '50' and skillstate 'Peacemaking' == up
+  sysmsg 'Training Peacemaking Selected' 88
+  pushlist 'skills' 'Peacemaking'
+endif
+//
+if skill 'Poisoning' >= '50' and skillstate 'Poisoning' == up
+  sysmsg 'Training Poisoning Selected' 88
+  pushlist 'skills' 'Poisoning'
+endif
+//
+if skill 'Provocation' >= '50' and skillstate 'Provocation' == up
+  sysmsg 'Training Provocation Selected' 88
+  pushlist 'skills' 'Provocation'
+endif
+//
+if skill 'Resisting Spells' >= '50' and skillstate 'Resisting Spells' == up
+  sysmsg 'Training Resisting Spells Selected' 88
+  pushlist 'skills' 'ResistingSpells'
+endif
+//
+if skill 'Remove Trap' >= '50' and skillstate 'Remove Trap' == up
+  sysmsg 'Training Remove Trap Selected' 88
+  pushlist 'skills' 'RemoveTrap'
+endif
+//
+if skill 'Snooping' >= '50' and skillstate 'Snooping' == up
+  sysmsg 'Training Snooping Selected' 88
+  pushlist 'skills' 'Snooping'
+endif
+//
+if skill 'Spellweaving' >= '50' and skillstate 'Spellweaving' == up
+  sysmsg 'Training Spellweaving Selected' 88
+  pushlist 'skills' 'Spellweaving'
+endif
+//
+if skill 'Stealing' >= '50' and skillstate 'Stealing' == up
+  sysmsg 'Training Stealing Selected' 88
+  pushlist 'skills' 'Stealing'
+endif
+//
+if skill 'Stealth' >= '50' and skillstate 'Stealth' == up
+  sysmsg 'Training Stealth Selected' 88
+  pushlist 'skills' 'Stealth'
+endif
+//
+if skill 'Swordsmanship' >= '50' and skillstate 'Swordsmanship' == up
+  sysmsg 'Training Swordsmanship Selected' 88
+  pushlist 'skills' 'Swordsmanship'
+endif
+//
+if skill 'Spirit Speak' >= '50' and skillstate 'Spirit Speak' == up
+  sysmsg 'Training Spirit Speak Selected' 88
+  pushlist 'skills' 'SpiritSpeak'
+endif
+//
+if skill 'Tailoring' >= '50' and skillstate 'Tailoring' == up
+  sysmsg 'Training Tailoring Selected' 88
+  pushlist 'skills' 'Tailoring'
+endif
+//
+if skill 'Tactics' >= '50' and skillstate 'Tactics' == up
+  sysmsg 'Training Tactics Selected' 88
+  pushlist 'skills' 'Tactics'
+endif
+//
+if skill 'Taste Identification' >= '50' and skillstate 'Taste Identification' == up
+  sysmsg 'Training Taste Identification Selected' 88
+  pushlist 'skills' 'TasteIdentification'
+endif
+//
+if skill 'Throwing' >= '50' and skillstate 'Throwing' == up
+  sysmsg 'Training Throwing Selected' 88
+  pushlist 'skills' 'Throwing'
+endif
+//
+if skill 'Tinkering' >= '50' and skillstate 'Tinkering' == up
+  sysmsg 'Training Tinkering Selected' 88
+  pushlist 'skills' 'Tinkering'
+endif
+//
+if skill 'Tracking' >= '50' and skillstate 'Tracking' == up
+  sysmsg 'Training Tracking Selected' 88
+  pushlist 'skills' 'Tracking'
+endif
+//
+if skill 'Wrestling' >= '50' and skillstate 'Wrestling' == up
+  sysmsg 'Training Wrestling Selected' 88
+  pushlist 'skills' 'Wrestling'
+endif
+//
+if skill 'Veterinary' >= '50' and skillstate 'Veterinary' == up
+  sysmsg 'Training Veterinary Selected' 88
+  pushlist 'skills' 'Veterinary'
+endif
+//
+//----------------------------------------------
+// do not make changes in this aready unless you know
+// what you are doing or are instructed to
+//----------------------------------------------
+//
+//----------------------------------------------
+// This section Sets up the lists.
+//----------------------------------------------
+//
+if not timerexists 'skilltimer'
+  settimer 'skilltimer' 11000
+endif
+//
+if not listexists 'playfair'
+  createlist 'playfair'
+endif
+//
+//
+//----------------------------------------------
+// This section Sets up the lists.
+//----------------------------------------------
+//
+pause 333
+@useobject 'backpack'
+pause 333
+//
+while not dead
+  //
+  //----------------------------------------------
+  // This section Trains Magery
+  //----------------------------------------------
+  //
+  if not findalias 'spelltarget'
+    setalias 'spelltarget'
+  endif
+  if int > 50
+    if mana < 30
+      while mana < 100
+        useskill 'meditation'
+        pause 6000
+      endwhile
+    endif
+    if skill 'Magery' >= '50' and skill 'Magery' < '100'
+      if skill 'Magery' >= 50 and skill 'Magery' <= 59.9
+        if hits > 20
+          cast 'Lightning'
+          waitfortarget 3000
+          target 'spelltarget'
+          pause 1000
+        else
+          cast 'Greater Heal'
+          waitfortarget 3000
+          target 'self'
+          pause 1000
+          cast 'Greater Heal'
+          waitfortarget 3000
+          target 'self'
+          pause 1000
+        endif
+      endif
+      if skill 'Magery' >= 60 and skill 'Magery' <= 69.9
+        cast 'Invisibility'
+        waitfortarget 3000
+        target 'self'
+        pause 1000
+      endif
+      if skill 'Magery' >= 70 and skill 'Magery' <= 79.9
+        if hits > 50
+          cast 'Flame Strike'
+          waitfortarget 3000
+          '
+          target 'spelltarget'
+          pause 1000
+        else
+          cast 'Greater Heal'
+          waitfortarget 3000
+          target 'self'
+          pause 1000
+          cast 'Greater Heal'
+          waitfortarget 3000
+          target 'self'
+          pause 1000
+        endif
+      endif
+      if skill 'Magery' >= 80 and skill 'Magery' <= 99.9
+        sysmsg 'magery over 80' 38
+        cast "Summon Water Elemental"
+        pause 333
+        if followers > 3
+          msg 'all release'
+          waitforgump 0x3780b38e 15000
+          replygump 0x3780b38e 1
+          pause 333
+        endif
+      endif
+    endif
+  endif
+  //
+  //----------------------------------------------
+  // This section Trains Magery
+  //----------------------------------------------
+  //
+  //
+  //----------------------------------------------
+  // This section trains EvalID to gain intel fast to 50
+  //----------------------------------------------
+  //
+  if int < 50
+    headmsg 'Training Eval Only to Gain INT to 50'
+    pause 1000
+    @canceltarget
+    @removetimer 'search'
+    @createtimer 'search'
+    @removelist 'found'
+    @createlist 'found'
+    @unsetalias 'enemy'
+    @getenemy 'any' next
+    @pushlist! 'found' 'enemy'
+    @removetimer 'search'
+    @setalias 'target1' found[0]
+    pause 333
+    useskill 'Evaluating Intelligence'
+    waitfortarget 500
+    target! 'target1'
+    pause 2000
+  else
+    // Restarts the section for training skills
+    if @inlist 'playfair' 'EvalID'
+      if @inlist 'playfair' 'EvalIDTwice'
+        if @inlist 'playfair' 'SpiritSpeak'
+          if @inlist 'playfair' 'SpiritSpeakTwice'
+            if @inlist 'playfair' 'Herding'
+              if @inlist 'playfair' 'Tracking'
+                headmsg 'Reset Skills Set'
+                clearlist 'playfair'
+                pause 600
+              endif
+            endif
+          endif
+        endif
+      endif
+    endif
+    //
+    //----------------------------------------------
+    // This section Trains Evaluating Intelligence
+    //----------------------------------------------
+    //
+    if timer 'skilltimer' > 2300
+      if not @inlist! 'playfair' 'EvalIDTwice' and @inlist! 'playfair' 'EvalID'
+        if skill 'Evaluating Intelligence' >= '50' and skill 'Evaluating Intelligence' < '100'
+          headmsg 'Training Eval - 2sec timer try2'
+          pause 333
+          @canceltarget
+          @removetimer 'search'
+          @createtimer 'search'
+          @removelist 'found'
+          @createlist 'found'
+          @unsetalias 'enemy'
+          @getenemy 'any' next
+          @pushlist! 'found' 'enemy'
+          @removetimer 'search'
+          @setalias 'target1' found[0]
+          pause 333
+          useskill 'Evaluating Intelligence'
+          waitfortarget 500
+          target! 'target1'
+          settimer 'skilltimer' 0
+          if not @inlist! 'playfair' 'EvalID'
+            if @injournal 'What would you like to evaluate?' 'system'
+              @pushlist 'playfair' 'EvalID'
+            endif
+          else
+            if @injournal 'What would you like to evaluate?' 'system'
+              @pushlist 'playfair' 'EvalIDTwice'
+            endif
+          endif
+        endif
+      endif
+      if not @inlist! 'playfair' 'EvalID'
+        if not @inlist! 'playfair' 'Herding'
+          if not @inlist! 'playfair' 'Tracking'
+            if skill 'Evaluating Intelligence' >= '50' and skill 'Evaluating Intelligence' < '100'
+              headmsg 'Training Eval - 2sec timer try1'
+              pause 333
+              @canceltarget
+              @removetimer 'search'
+              @createtimer 'search'
+              @removelist 'found'
+              @createlist 'found'
+              @unsetalias 'enemy'
+              @getenemy 'any' next
+              @pushlist! 'found' 'enemy'
+              @removetimer 'search'
+              @setalias 'target1' found[0]
+              pause 333
+              useskill 'Evaluating Intelligence'
+              waitfortarget 500
+              target! 'target1'
+              settimer 'skilltimer' 0
+              if not @inlist! 'playfair' 'EvalID'
+                if @injournal 'What would you like to evaluate?' 'system'
+                  @pushlist 'playfair' 'EvalID'
+                endif
+              else
+                if @injournal 'What would you like to evaluate?' 'system'
+                  @pushlist 'playfair' 'EvalIDTwice'
+                endif
+              endif
+            endif
+          endif
+        endif
+      endif
+      //
+    endif
+    //
+    //----------------------------------------------
+    // This section Trains Evaluating Intelligence
+    //----------------------------------------------
+    //
+    //
+    //----------------------------------------------
+    // This section Trains Spirit Speak
+    //----------------------------------------------
+    //
+    if timer 'skilltimer' > 2300
+      //
+      if not @inlist! 'playfair' 'SpiritSpeakTwice' and @inlist! 'playfair' 'SpiritSpeak'
+        if skill 'Spirit Speak' >= '50' and skill 'Spirit Speak' < '100'
+          headmsg 'Training Spirit Speak - 2sec timer try2'
+          pause 333
+          useskill 'Spirit Speak'
+          settimer 'skilltimer' 0
+          if not @inlist! 'playfair' 'SpiritSpeak'
+            if @injournal 'You fail your attempt at contacting the netherworld.' 'system' or if @injournal 'You establish contact with the netherworld.' 'system'
+              @pushlist 'playfair' 'SpiritSpeak'
+            endif
+          else
+            if @injournal 'You fail your attempt at contacting the netherworld.' 'system' or if @injournal 'You establish contact with the netherworld.' 'system'
+              @pushlist 'playfair' 'SpiritSpeakTwice'
+            endif
+            @pushlist 'playfair' 'SpiritSpeak'
+          endif
+        endif
+      endif
+      if not @inlist! 'playfair' 'SpiritSpeak'
+        if not @inlist! 'playfair' 'Herding'
+          if not @inlist! 'playfair' 'Tracking'
+            if skill 'Spirit Speak' >= '50' and skill 'Spirit Speak' < '100'
+              headmsg 'Training Spirit Speak - 2sec timer try1'
+              pause 333
+              useskill 'Spirit Speak'
+              settimer 'skilltimer' 0
+              if not @inlist! 'playfair' 'SpiritSpeak'
+                if @injournal 'You fail your attempt at contacting the netherworld.' 'system' or if @injournal 'You establish contact with the netherworld.' 'system'
+                  @pushlist 'playfair' 'SpiritSpeak'
+                endif
+              else
+                if @injournal 'You fail your attempt at contacting the netherworld.' 'system' or if @injournal 'You establish contact with the netherworld.' 'system'
+                  @pushlist 'playfair' 'SpiritSpeakTwice'
+                endif
+                @pushlist 'playfair' 'SpiritSpeak'
+              endif
+            endif
+          endif
+        endif
+      endif
+    endif
+    //
+    //----------------------------------------------
+    // This section Trains Spirit Speak
+    //----------------------------------------------
+    //
+    //
+    //----------------------------------------------
+    // This section Trains Herding
+    //----------------------------------------------
+    //
+    if timer 'skilltimer' > 7500
+      if not @inlist! 'playfair' 'Herding'
+        if skill 'Herding' >= '50' and skill 'Herding' < '100'
+          if findtype '0xe81' 'any' 'backpack'
+            headmsg 'Training Herding -7sec timer'
+            pause 333
+            usetype '0xe81'
+            waitfortarget 333
+            target! 'self'
+            settimer 'skilltimer' 0
+            @pushlist 'playfair' 'Herding'
+          endif
+        endif
+      endif
+    endif
+    //
+    //----------------------------------------------
+    // This section Trains Herding
+    //----------------------------------------------
+    //
+    //
+    //----------------------------------------------
+    // This section Trains Tracking
+    //----------------------------------------------
+    //
+    if timer 'skilltimer' > 10500
+      if not @inlist! 'playfair' 'Tracking'
+        if skill 'Tracking' >= '50' and skill 'Tracking' < '100'
+          headmsg 'Training Tracking - 10sec timer'
+          pause 333
+          useskill 'Tracking'
+          waitforgump 0xfe5c638b 333
+          replygump 0xfe5c638b 2
+          settimer 'skilltimer' 0
+          @pushlist 'playfair' 'Tracking'
+        endif
+      endif
+    endif
+  endif
+  //
+  //----------------------------------------------
+  // This section Trains Tracking
+  //----------------------------------------------
+  //
+  //
+  //----------------------------------------------
+  // This section is the end of the script
+  //----------------------------------------------
+  //
+endwhile
+//
+//----------------------------------------------
+// This section is the end of the script
+//----------------------------------------------
+//
